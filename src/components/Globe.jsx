@@ -120,7 +120,7 @@ export default function GlobeComponent() {
         overflow: "hidden",
       }}
     >
-      {/* 🔍 Search Bar - Centered in the screen */}
+  
       <Box
         
         initial={{ opacity: 0, y: -20 }}
@@ -287,7 +287,7 @@ export default function GlobeComponent() {
         backgroundColor="rgba(0,0,0,0)"
       />
 
-      {/* 🌤 Weather Info Card */}
+      
       <AnimatePresence>
         {zoomed && cityData && (
           <MotionDiv
@@ -295,31 +295,40 @@ export default function GlobeComponent() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 60 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            style={{
-              position: "absolute",
-              bottom: "5%",
-              left: "50%",
-              transform: "translateX(-50%)",
-              zIndex: 10,
-              width: "90%",
-              maxWidth: "420px",
-            }}
+              style={{
+                position: "absolute",
+                bottom: "7%",
+                left: "7%",
+                transform: "translateX(-50%)",
+                zIndex: 10,
+                width: "clamp(320px, 90%, 520px)",
+                maxWidth: "95%",
+                minWidth: "280px",
+                display: "flex",
+                justifyContent: "center",
+              }}
           >
             <Card
               sx={{
-                borderRadius: { xs: "16px", sm: "20px" },
+                borderRadius: { xs: "12px", sm: "16px" },
                 overflow: "hidden",
-                boxShadow: "0 8px 30px rgba(0,0,0,0.3)",
-                backdropFilter: "blur(10px)",
-                backgroundColor: "rgba(0,0,0,0.65)",
+                boxShadow: "0 10px 36px rgba(0,0,0,0.35)",
+                backdropFilter: "blur(12px)",
+                backgroundColor: "rgba(0,0,0,0.68)",
                 textAlign: { xs: "center", sm: "left" },
+                width: "100%",
+                maxWidth: "520px",
+                mx: "auto",
               }}
             >
               <CardContent
                 sx={{
                   position: "relative",
                   color: "white",
-                  p: { xs: 2, sm: 3 },
+                  p: { xs: 1.5, sm: 2.5, md: 3 },
+                  boxSizing: "border-box",
+                  maxHeight: { xs: "46vh", sm: "38vh", md: "none" },
+                  overflowY: { xs: "auto", sm: "visible" },
                 }}
               >
                 <IconButton
@@ -339,9 +348,10 @@ export default function GlobeComponent() {
                 <Typography
                   variant="h5"
                   sx={{
-                    fontWeight: "bold",
-                    fontSize: { xs: "1.3rem", sm: "2rem" },
-                    mb: 2,
+                    fontWeight: 700,
+                    fontSize: { xs: "1.05rem", sm: "1.4rem", md: "1.9rem" },
+                    mb: { xs: 1.5, sm: 2 },
+                    lineHeight: 1.05,
                   }}
                 >
                   {cityData.city}
@@ -358,8 +368,9 @@ export default function GlobeComponent() {
                     <Typography
                       variant="h4"
                       sx={{
-                        fontWeight: "bold",
-                        fontSize: { xs: "1.8rem", sm: "2.5rem" },
+                        fontWeight: 700,
+                        fontSize: { xs: "1.4rem", sm: "1.8rem", md: "2.4rem" },
+                        lineHeight: 1,
                       }}
                     >
                       {Math.round(cityData.temp)}°C
@@ -380,9 +391,9 @@ export default function GlobeComponent() {
                     sx={{
                       display: "flex",
                       flexDirection: "column",
-                      gap: 1,
-                      opacity: 0.85,
-                      fontSize: { xs: "0.9rem", sm: "1rem" },
+                      gap: 0.75,
+                      opacity: 0.9,
+                      fontSize: { xs: "0.85rem", sm: "0.95rem" },
                     }}
                   >
                     <Typography variant="body2">
