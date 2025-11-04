@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Box, Typography, CircularProgress, Card, CardContent } from "@mui/material";
-import Globe from "../components/Globe";
+import GlobeComponent from "../components/GlobeComponent.jsx";
 import { getWeatherByCoords } from "../api/weather";
 
 export default function Home() {
@@ -25,7 +25,7 @@ export default function Home() {
       }}
     >
       {/* 🌍 Globe */}
-      <Globe onCitySelect={handleSelectCity} />
+      <GlobeComponent onCitySelect={handleSelectCity} />
 
       {/* ⏳ Loading Spinner */}
       {loading && (
